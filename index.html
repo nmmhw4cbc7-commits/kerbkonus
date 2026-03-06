@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KerbKonus | Future of Fastening</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kerb-green: #66b512;
+            --glass-bg: rgba(255, 255, 255, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            min-height: 100vh;
+            color: #1a202c;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Fluid Animations */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .accent-text { color: var(--kerb-green); }
+        .accent-bg { background-color: var(--kerb-green); }
+
+        /* Liquid Background Shapes */
+        .blob {
+            position: fixed;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.5;
+            border-radius: 50%;
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(0, 0); }
+            to { transform: translate(100px, 100px); }
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: var(--kerb-green); border-radius: 10px; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- Background Blobs -->
+    <div class="blob accent-bg" style="width: 400px; height: 400px; top: -100px; right: -100px;"></div>
+    <div class="blob accent-bg" style="width: 300px; height: 300px; bottom: -50px; left: -50px; opacity: 0.2;"></div>
+
+    <!-- Main Container -->
+    <div class="max-w-6xl mx-auto space-y-8 pb-32">
+        
+        <!-- Logo Oben Links -->
+        <div class="w-full flex justify-start pl-2 md:pl-0">
+            <img src="https://www.schraubenverband.de/uploads/companies/Logo%20farbe%20transparent%2040mm.png" alt="KerbKonus Logo" class="h-10 md:h-14 object-contain">
+        </div>
+
+        <!-- Header / Hero Section -->
+        <header class="glass-card p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
+            <div class="z-10 flex-1 space-y-6">
+                <div class="inline-block px-4 py-1 rounded-full bg-white/50 text-sm font-semibold accent-text tracking-wide">
+                    ISO 9001, 14001, 50001 zertifiziert
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+                    Sicherer Halt für <br><span class="accent-text">Technologien.</span>
+                </h1>
+                <p class="text-xl text-gray-600 max-w-lg">
+                    KerbKonus ist Ihr globaler Partner für innovative Gewindeeinsätze und Präzisions-Verbindungstechnik.
+                </p>
+                <div class="flex gap-4">
+                    <button class="accent-bg text-white px-8 py-4 rounded-2xl font-bold hover:opacity-90 transition shadow-lg">Produkte entdecken</button>
+                    <button class="bg-white/50 px-8 py-4 rounded-2xl font-bold hover:bg-white transition">CAD-Daten</button>
+                </div>
+            </div>
+            <div class="flex-1 relative">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" 
+                     alt="Engineering" class="rounded-3xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-700">
+            </div>
+        </header>
+
+        <!-- Stats Quick Look -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="glass-card p-6 text-center">
+                <div class="text-3xl font-bold accent-text">75+</div>
+                <div class="text-sm text-gray-500 uppercase tracking-tighter">Jahre Erfahrung</div>
+            </div>
+            <div class="glass-card p-6 text-center">
+                <div class="text-3xl font-bold accent-text">Global</div>
+                <div class="text-sm text-gray-500 uppercase tracking-tighter">Standorte</div>
+            </div>
+            <div class="glass-card p-6 text-center">
+                <div class="text-3xl font-bold accent-text">Premium</div>
+                <div class="text-sm text-gray-500 uppercase tracking-tighter">Qualität</div>
+            </div>
+            <div class="glass-card p-6 text-center">
+                <div class="text-3xl font-bold accent-text">3D</div>
+                <div class="text-sm text-gray-500 uppercase tracking-tighter">CAD Bibliothek</div>
+            </div>
+        </section>
+
+        <!-- Product Categories -->
+        <main id="produkte" class="space-y-6">
+            <h2 class="text-3xl font-bold px-4">Unsere Lösungen</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Ensat -->
+                <div class="glass-card p-6 hover-lift group">
+                    <div class="h-48 rounded-2xl overflow-hidden mb-6 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Ensat®</h3>
+                    <p class="text-gray-600 mb-4">Selbstschneidende Gewindeeinsätze für höchste Belastbarkeit in Leichtbau-Werkstoffen.</p>
+                    <span class="accent-text font-semibold flex items-center gap-2">Details ansehen <span>→</span></span>
+                </div>
+
+                <!-- Mubux -->
+                <div class="glass-card p-6 hover-lift group">
+                    <div class="h-48 rounded-2xl overflow-hidden mb-6 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Mubux®</h3>
+                    <p class="text-gray-600 mb-4">Einpress-Gewindeeinsätze für thermoplastische Kunststoffe. Effizient und sicher.</p>
+                    <span class="accent-text font-semibold flex items-center gap-2">Details ansehen <span>→</span></span>
+                </div>
+
+                <!-- S-Lok -->
+                <div class="glass-card p-6 hover-lift group">
+                    <div class="h-48 rounded-2xl overflow-hidden mb-6 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">S-Lok®</h3>
+                    <p class="text-gray-600 mb-4">Spezial-Verbindungstechnik für Verbundwerkstoffe und anspruchsvolle Montage.</p>
+                    <span class="accent-text font-semibold flex items-center gap-2">Details ansehen <span>→</span></span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Service Section -->
+        <section id="service" class="glass-card p-8 flex flex-col md:flex-row gap-8 items-center bg-white/20">
+            <div class="flex-1">
+                <h2 class="text-3xl font-bold mb-4">Technischer Service</h2>
+                <p class="text-gray-600 mb-6">Laden Sie CAD-Daten herunter, nutzen Sie unsere Produktdatenbank oder fordern Sie ein Muster an. Wir unterstützen Ihre Konstruktion.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="#" class="p-4 bg-white/40 rounded-2xl text-center font-medium hover:bg-white/60 transition">Produktdatenbank</a>
+                    <a href="#" class="p-4 bg-white/40 rounded-2xl text-center font-medium hover:bg-white/60 transition">Messen 2024</a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/3 accent-bg p-8 rounded-3xl text-white">
+                <h4 class="text-xl font-bold mb-2">Kontaktieren Sie uns</h4>
+                <p class="text-sm opacity-90 mb-6">Fragen zur Anwendung? Unsere Experten in Amberg beraten Sie gerne.</p>
+                <button class="w-full bg-white text-black py-3 rounded-xl font-bold">Anfrage senden</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Floating iOS 26 Navigation Bar -->
+    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md glass-nav p-2 flex justify-between items-center z-50 shadow-2xl">
+        <a href="#" class="w-12 h-12 flex items-center justify-center rounded-full accent-bg text-white shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v4a1 1 0 01-1 1H6a1 1 0 01-1-1v-4a1 1 0 001-1m5 0h4" />
+            </svg>
+        </a>
+        <a href="#produkte" class="px-4 py-2 text-gray-600 font-medium hover:accent-text transition">Produkte</a>
+        <a href="#service" class="px-4 py-2 text-gray-600 font-medium hover:accent-text transition">Service</a>
+        <a href="#" class="px-4 py-2 text-gray-600 font-medium hover:accent-text transition">Über uns</a>
+    </nav>
+
+</body>
+</html>
